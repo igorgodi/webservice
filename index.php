@@ -20,6 +20,14 @@
  */
 
 /*
+ * Installation :
+ * 	- git clone git@git.in.ac-reims.fr:soap-serveur-base
+ * 	- composer install
+ * 	- cp config.inc.php.sample config.inc.php
+ *	- Compléter le fichier config.inc.php
+ *	- Créer les méthodes du webservice dans WebService.php en annotant bien les entrées et sorties des méthodes
+ *		(important pour l'auto génération du wsdl)
+ *
  * Exemple de client :
  *	// Evite le cache wsdl
  *	ini_set('soap.wsdl_cache_enable', 0);
