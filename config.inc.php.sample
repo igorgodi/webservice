@@ -1,0 +1,30 @@
+<?php
+/*
+ *   Fichier de configuration du werservice
+ *
+ *   Copyright 2017        igor.godi@ac-reims.fr
+ *	 DSI4 - Pôle-projets - Rectorat de l'académie de Reims.
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>
+ */
+
+//--> Dans le cas ou l'on utilise le protocole SOAP
+// Adresse où se trouve le script de serveur SOAP (car on n'utilise pas de wsdl)
+define ("SOAP_SERVEUR_ADDR", "http://serveur.ac-xxxxx.fr/ws");
+// Indique au script si il doit vérifier le contexte de connexion HTTP (doit-être doublé par la conf apache)
+define ("SOAP_SERVEUR_HTTPS_SECURE", true);
+// Indique au script l'adresse client SOAP autorisée à se connecter (doit-être doublé par la conf apache)
+define ("SOAP_SERVEUR_LIMIT_IP", "www.xxx.yyy.zzz");
+
+?>
