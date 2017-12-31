@@ -98,29 +98,22 @@ if (isset($_GET["wsdl"]))
 	exit;
 }
 
-//--> Gestion des exceptions du serveur
-// Capture de toutes les exceptions du serveur dans la fonction exception_handler(); afin de les rediriger vers le client
-set_exception_handler('exception_handler');
-
 //--> Création du serveur SOAP
-$soap = new Server(null, array(	'location' => SOAP_SERVEUR_ADDR, 'uri' => SOAP_SERVEUR_ADDR) );
-$soap->setClass($class);
-$soap->handle();
-
-
-/********************************************************************************************************************************/
-/* fonctions nécessaires au programme principal											*/
-/********************************************************************************************************************************/
-/**
- * Gestionnaire d'exceptions du serveur
- *
- * @param $exception Contenu de l'exception à envoyer au client
- */
-function exception_handler($exception) {
+try
+{
+	$soap = new Server(null, array(	'location' => SOAP_SERVEUR_ADDR, 'uri' => SOAP_SERVEUR_ADDR) );
+	$soap->setClass($class);
+	$soap->handle();
+}
+catch (\Exception $exception) 
+{ 
 	// Renvoie le message d'exception au client sous forme d'une erreur SOAP	
 	sendError($exception->getMessage());
 }
 
+/********************************************************************************************************************************/
+/* fonctions nécessaires au programme principal											*/
+/********************************************************************************************************************************/
 /**
  * Envoi d'un message d'erreur SOAP en réponse à la demande du client
  *
